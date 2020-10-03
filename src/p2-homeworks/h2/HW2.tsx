@@ -33,9 +33,8 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): A
       return affairs.filter(filterFunc);
   }
 };
-export const deleteAffair = (affairs: Array<AffairType>, _id: number): any => {
-  // need to fix any
-  return; // need to fix
+export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
+  return affairs.filter((item) => item._id !== _id);
 };
 
 function HW2() {
@@ -46,15 +45,13 @@ function HW2() {
   const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id));
 
   return (
-    <div>
+    <>
       <hr />
       homeworks 2
       <Affairs data={filteredAffairs} setFilter={setFilter} deleteAffairCallback={deleteAffairCallback} />
       <hr />
-      {/*для личного творчества, могу проверить*/}
-      {/*<AlternativeAffairs/>*/}
       <hr />
-    </div>
+    </>
   );
 }
 
