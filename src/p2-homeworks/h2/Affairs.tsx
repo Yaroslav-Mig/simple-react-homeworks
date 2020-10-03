@@ -1,38 +1,42 @@
-import React from "react";
-import Affair from "./Affair";
-import {AffairType} from "./HW2";
+import React, { MouseEvent } from 'react';
+import Affair from './Affair';
+import { AffairType, FilterType } from './HW2';
 
-type AffairsPropsType = { // need to fix any
-    data: any
-    setFilter: any
-    deleteAffairCallback: any
-}
+type AffairsPropsType = {
+  data: Array<AffairType>;
+  setFilter: (filterValue: FilterType) => void;
+  deleteAffairCallback: (id: number) => void;
+};
 
 function Affairs(props: AffairsPropsType) {
-    const mappedAffairs = props.data.map((a: AffairType) => (
-        <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
-            affair={a}
-            deleteAffairCallback={props.deleteAffairCallback}
-        />
-    ))
-
-    const setAll = () => {}; // need to fix
-    const setHigh = () => {};
-    const setMiddle = () => {};
-    const setLow = () => {};
-
+  const mappedAffairs = props.data.map((item: AffairType) => {
     return (
-        <div>
-
-            {mappedAffairs}
-
-            <button onClick={setAll}>All</button>
-            <button onClick={setHigh}>High</button>
-            <button onClick={setMiddle}>Middle</button>
-            <button onClick={setLow}>Low</button>
-        </div>
+      <Affair key={item._id} affair={item} deleteAffairCallback={props.deleteAffairCallback} />
     );
+  });
+
+  const setAll = (): void => props.setFilter('all');
+  const setHigh = (): void => props.setFilter('high');
+  const setMiddle = (): void => props.setFilter('middle');
+  const setLow = (): void => props.setFilter('low');
+
+  return (
+    <>
+      <ul>{mappedAffairs}</ul>
+      <button type='button' onClick={setAll}>
+        All
+      </button>
+      <button type='button' onClick={setHigh}>
+        High
+      </button>
+      <button type='button' onClick={setMiddle}>
+        Middle
+      </button>
+      <button type='button' onClick={setLow}>
+        Low
+      </button>
+    </>
+  );
 }
 
 export default Affairs;

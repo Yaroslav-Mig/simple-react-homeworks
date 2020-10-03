@@ -8,7 +8,6 @@ type PropsType = {
   time: string;
 };
 
-// require(`${props.avatar}`)
 export function Message(props: PropsType) {
   return (
     <article className={style.container}>
@@ -21,10 +20,12 @@ export function Message(props: PropsType) {
         />
       </div>
       <div className={style.box_message}>
-				<h4 className={ style.name }>{props.name}</h4>
+        <h4 className={style.name}>{props.name}</h4>
         <p className={style.text}>
           {props.message}
-          <time className={style.time} dateTime='20:00'>{props.time}</time>
+          <time className={style.time} dateTime='20:00'>
+            {props.time}
+          </time>
         </p>
       </div>
     </article>
