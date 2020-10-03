@@ -1,3 +1,51 @@
-.someClass {
-
+.box {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  padding: 10px 5px;
+  max-width: 300px;
+  width: 100%;
+  background-color: #dddddd;
+  border: 1px solid #242424;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 3px #464646;
+}
+.box__items {
+  align-self: center;
+  box-sizing: border-box;
+  padding: 0;
+  width: 70%;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 10px;
+  background-color: #464646;
+  color: #dddddd;
+  list-style: none;
+}
+.item__title {
+  font-family: Helvetica, Arial, Verdana, Cursive, Sans-serif;
+}
+.item__btn_remove,
+.btn__filter {
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.box__btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+.btn__filter {
+  flex: 0 1 50px;
+}
+.btn_active,
+.btn__filter:hover {
+  color: #fff;
+  box-shadow: inset 0 -20px 0 #646464, 1px 1px 2px #000000;
+}
+.item__btn_remove:hover {
+  color: #fff;
+  box-shadow: inset 0 -20px 0 #000000;
 }

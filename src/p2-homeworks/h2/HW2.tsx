@@ -48,7 +48,12 @@ function HW2() {
     <>
       <hr />
       homeworks 2
-      <Affairs data={filteredAffairs} setFilter={setFilter} deleteAffairCallback={deleteAffairCallback} />
+      <Affairs
+        filter={filter}
+        data={filteredAffairs}
+        setFilter={setFilter}
+        deleteAffairCallback={deleteAffairCallback}
+      />
       <hr />
       <hr />
     </>
